@@ -70,7 +70,6 @@ bias into some calculations or summaries of the data.
 sum(is.na(data))
 ```
 
-
 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
 mean for that 5-minute interval to fill 
