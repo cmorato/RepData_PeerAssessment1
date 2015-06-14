@@ -1,6 +1,11 @@
-# Reproducible Research: Peer Assessment 1
-Carlos Morato  
-Saturday, June 13, 2015  
+---
+title: 'Reproducible Research: Peer Assessment 1'
+author: "Carlos Morato"
+date: "Saturday, June 13, 2015"
+output: 
+  html_document:
+    keep_md: true
+---
 
 Loading and preprocessing the data
 ---
@@ -46,19 +51,12 @@ What is mean total number of steps taken per day?
 
 ```r
 library(ggplot2)
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 3.1.3
-```
-
-```r
 TotalSteps <- aggregate(steps ~ date, data = NAfreeData, sum, na.rm = TRUE)
 
 hist(TotalSteps$steps, main = "Histogram of Total Number of Steps Taken Each Day", xlab = "Days", col = "steelblue", border ="blue", labels =TRUE)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 2. Calculate and report the mean and median total number of steps taken per day
 
@@ -90,7 +88,7 @@ names(avgActivity)[2] <- "StepsAvg"
 ggplot(avgActivity, aes(interval, StepsAvg)) + geom_line(color = "chocolate1", size = 0.8) + labs(title = "Average number of steps taken", x = "5-minute intervals", y = "Average Number of Steps Taken")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -153,7 +151,7 @@ newTotalSteps <- aggregate(steps ~ date, data = newData, sum, na.rm = TRUE)
 hist(newTotalSteps$steps, main = "Histogram of Total Number of Steps Taken Each Day (no missing data)", xlab = "Days", col = "steelblue", border ="blue", labels =TRUE)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
 
 ```r
 mean(newTotalSteps$steps)
@@ -228,4 +226,4 @@ xyplot(avgSteps$meanOfSteps ~ avgSteps$interval | avgSteps$weekdays,
        xlab = "Interval", ylab = "Number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
